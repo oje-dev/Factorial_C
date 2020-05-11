@@ -57,5 +57,17 @@ int rfactorial(int n) {
  * You have to implement this function.
  */
 int trfactorial(int n, int fac) {
-    return -1;
+    if (n < 0) {
+        errno = EINVAL;
+        return -1;
+
+    }else if (n == 0) {
+        return 1;
+
+    }else {
+        if (n == 1) {
+            return fac;
+        }
+        return trfactorial(n - 1, fac * n);
+    }
 }
